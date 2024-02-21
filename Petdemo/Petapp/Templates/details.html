@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+view details
+{% endblock  %}
+{% block body %}
+<div class="row">
+    <div class="col-md-4">
+        <img src="{{pets.image.url}}" class="card-img-top" alt="..." style="width: 100%; height:200px;">
+    </div>
+    <div class="col-md-8">
+        <div class="card-body">
+            <h5 class="card-title">{{pets.name}}</h5>
+            <p class="card-text">{{pets.description}}</p>
+            <p class="card-text">{{pets.price}}</p>
+            <a href="/addcart/{{pets.id}}"><button type="submit" class="btn btn-danger">Add to card</button></a>
+            <a href="/"><button type="submit" class="btn btn-danger">Back</button></a>
+        </div><br>
+        
+    </div>
+</div>
+{% endblock  %}

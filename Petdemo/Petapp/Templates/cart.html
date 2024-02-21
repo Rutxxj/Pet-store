@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}
+Customer details
+{% endblock  %}
+{% block body %}
+<div class="row">
+    <div class="col-md-9 mt-2">
+        <h5 class="bg-danger text-white-50 p-2">Customer Details</h5>
+        <p><b>Name:</b>anonymous</p>
+        <p><b>Phone No.:</b>8408006816</p>
+        <p><b>Email:</b>@gmail.com</p>
+
+        <h5 class="bg-danger text-white-50 p-2 ">Cart Details</h5>
+        {%for x in cart_items%}
+        <div class="row">
+        <div class="col-md-4 mt-2">0.
+            
+            <img src="{{x.pet.image.url}}" width="100%" style="height: 200px;">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><b>Product Name:</b>&nbsp;&nbsp;{{x.pet.name}}</h5>
+                <p class="card-text"><b>Product Price:</b>&nbsp;&nbsp;{{x.pet.price}}</p>
+                <p class="card-text"><b>Product Quantity:</b>&nbsp;&nbsp;{{x.quantity}}</p>
+                <p class="card-text"><b>Product Description:</b>&nbsp;&nbsp;{{x.pet.description}}</p>
+                <a href="#"><button type="submit" class="btn btn-primary">Buy</button></a>
+                <a href="/delete/{{x.id}}"><button type="submit" class="btn btn-primary">Remove</button></a>
+            </div>
+        </div>
+    </div>
+    <hr>
+        {% endfor %}
+    </div>
+    <!-- ------------------------------------------------------------------------
+    ------------------------------------------------------------------------ -->
+    <div class="col-md-3 mt-2">
+        <h5 class="bg-danger text-white-50 p-2 ">Total Amount </h5>
+        <p><b>Total Items({{items}}):</b>&nbsp;Rs.&nbsp;{{total}}</p>
+        <hr>
+        <p><b>Total Amount:</b>&nbsp;Rs.&nbsp;{{total}}</p>
+    </div>
+</div>
+
+{% endblock  %}
